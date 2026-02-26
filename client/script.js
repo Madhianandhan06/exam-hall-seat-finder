@@ -2,8 +2,13 @@ async function searchSeat() {
   const regNo = document.getElementById("regNo").value.trim();
   const result = document.getElementById("result");
 
+  // clear previous content/styles
+  result.innerHTML = "";
+  result.classList.remove("error");
+
   if (!regNo) {
-    result.innerText = "Please enter your register number.";
+    result.textContent = "Please enter your register number.";
+    result.classList.add("error");
     return;
   }
 
@@ -14,19 +19,26 @@ async function searchSeat() {
   const data = await res.json();
 
   if (!res.ok) {
-    result.innerText = "No exam data available.";
+    result.textContent = "No exam data available for that register number.";
+    result.classList.add("error");
     return;
   }
 
-  result.innerText = `
-Name        : ${data.name} 
-Register No : ${data.regNo}
-Department  : ${data.department}
-Hall        : ${data.hall}
-Seat No     : ${data.seatNo}
-Subject     : ${data.subject}
-Date        : ${data.date}
-Session     : ${data.session}
-Exam ID     : ${data.examId}
+  // build a table for the returned data
+  const html = `
+    <table class="result-table">
+      <tr><th>Name</th><td>${data.name}</td></tr>
+      <tr><th>Register No</th><td>${data.regNo}</td></tr>
+      <tr><th>Department</th><td>${data.department}</td></tr>
+      <tr><th>Hall</th><td>${data.hall}</td></tr>
+      <tr><th>Seat No</th><td>${data.seatNo}</td></tr>
+      <tr><th>Subject</th><td>${data.subject}</td></tr>
+      <tr><th>Date</th><td>${data.date}</td></tr>
+      <tr><th>Session</th><td>${data.session}</td></tr>
+      <tr><th>Exam ID</th><td>${data.examId}</td></tr>
+    </table>
   `;
+
+  result.innerHTML = html;
 }
+

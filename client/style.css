@@ -259,7 +259,40 @@ button {
   padding: 16px;
   border-radius: 6px;
   font-size: 14px;
-  white-space: pre-wrap;
+  white-space: normal;
+}
+
+/* structured table inside the result box */
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result-table th,
+.result-table td {
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.result-table th {
+  width: 35%;
+  color: #555;
+  font-weight: 600;
+}
+
+.result-table tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.result-table tr:nth-child(even) {
+  background: #f1f5f9;
+}
+
+/* error text inside result area */
+.result-box.error {
+  color: #dc2626;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
 }
 
 /* =========================
