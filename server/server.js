@@ -20,7 +20,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/student", studentRoutes);
 
 // Serve index.html for all other routes (SPA)
-app.get("*", (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
