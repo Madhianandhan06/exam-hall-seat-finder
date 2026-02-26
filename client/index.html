@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam Hall & Seat Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <h1>Exam Hall & Seat Finder</h1>
+      <p>Enter your Register Number to view seating details</p>
+    </header>
+
+    <section class="card">
+      <input
+        type="text"
+        id="regNo"
+        placeholder="Register Number"
+      />
+
+      <button class="primary" onclick="searchSeat()">Search</button>
+
+      <pre id="result" class="result-box"></pre>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

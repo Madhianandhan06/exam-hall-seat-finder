@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard – Exam Seat Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Page Container -->
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1>Exam Seat Management</h1>
+      <p>Admin Control Panel</p>
+    </header>
+
+    <!-- Upload Card -->
+    <section class="card">
+      <h2>Upload Seating File</h2>
+
+      <input type="password" id="adminKey" placeholder="Admin Key" />
+      <input type="text" id="examId" placeholder="Exam ID (eg: SEM6_APR_2026)" />
+      <label for="excelFile">Seating File (.xlsx)</label>
+      <input type="file" id="excelFile" accept=".xlsx" aria-label="Seating file (.xlsx)" />
+
+      <button class="primary" onclick="uploadExcel()">Upload Excel</button>
+      <p id="status" class="status"></p>
+    </section>
+
+    <!-- History Card -->
+    <section class="card">
+      <h2>Upload History</h2>
+      <div id="historyList" class="history-list"></div>
+    </section>
+
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
