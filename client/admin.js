@@ -19,7 +19,7 @@ async function uploadExcel() {
   formData.append("file", file);
   formData.append("examId", examId);
 
-  const res = await fetch("http://localhost:5000/api/admin/upload", {
+  const res = await fetch("https://exam-hall-seat-finder.onrender.com/api/admin/upload", {
     method: "POST",
     headers: { "x-admin-key": adminKey },
     body: formData
@@ -41,7 +41,7 @@ async function loadHistory() {
 
   if (!adminKey) return;
 
-  const res = await fetch("http://localhost:5000/api/admin/history", {
+  const res = await fetch("https://exam-hall-seat-finder.onrender.com/api/admin/history", {
     headers: { "x-admin-key": adminKey }
   });
 
@@ -70,7 +70,7 @@ async function deleteUpload(id) {
   const adminKey = adminKeyInput.value.trim();
   if (!confirm("This will permanently delete exam data. Continue?")) return;
 
-  await fetch(`http://localhost:5000/api/admin/delete/${id}`, {
+  await fetch(`https://exam-hall-seat-finder.onrender.com/api/admin/delete/${id}`, {
     method: "DELETE",
     headers: { "x-admin-key": adminKey }
   });

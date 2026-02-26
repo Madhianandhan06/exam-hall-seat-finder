@@ -8,7 +8,7 @@ async function searchSeat() {
   }
 
   const res = await fetch(
-    `http://localhost:5000/api/student/search?regNo=${regNo}`
+    `https://exam-hall-seat-finder.onrender.com/api/student/search?regNo=${regNo}`
   );
 
   const data = await res.json();
